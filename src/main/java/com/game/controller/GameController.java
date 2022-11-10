@@ -16,8 +16,12 @@ public class GameController {
 
     @PostMapping("/game/start")
     ResponseEntity<String> prepareGame(@RequestBody String s) {
-        System.out.println(s);
-        return ResponseEntity.ok("READY");
+        if (s.equalsIgnoreCase("START")) {
+            gameService.reset();
+            return ResponseEntity.ok("READY");
+        } else {
+            return ResponseEntity.badRequest().body("Give start as payload to restart the game.");
+        }
     }
 
     @PostMapping("/game/player1move")

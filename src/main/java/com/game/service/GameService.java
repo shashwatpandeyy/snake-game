@@ -86,4 +86,9 @@ public class GameService {
         }
         return diceInt;
     }
+
+    public void reset() {
+        player1Position = 0;
+        player2Position = 0;
+    }
 }
